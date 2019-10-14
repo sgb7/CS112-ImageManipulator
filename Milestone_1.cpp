@@ -53,11 +53,6 @@ void string_to_int(string const &the_string, vector<int> &int_vector)
 int main()
 {
     vector<string> data;
-    vector<int> data_line_1;
-    vector<int> data_line_2;
-    vector<int> data_line_3;
-    vector<int> data_line_4;
-    //Shouldn't need these extra vectors. Just one other vector should do.
     vector<int> int_data; //that should work
     
     cout << "Please enter source file name here: " << endl;
@@ -115,8 +110,6 @@ int main()
         cout << data[2] << endl;
         //Good*/
 
-        
-        // New code:
         for(int i=3; i < data.size(); i++)
         {
             vector<int> temp_vector;
@@ -133,20 +126,37 @@ int main()
         }
         cout << endl;*/
         
-        for(int i=0; i < int_data.size(); i++)
+        switch(desired_effect)
         {
-            if(i%3==0)
-            {
-                int_data[i]=0;
-            }
+            case 1:
+               for(int i=0; i < int_data.size(); i++)
+                {
+                    if(i%3==0)
+                    {
+                        int_data[i]=0;
+                    }
+                }
+               break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            default:
+                cout << "This is an invalid input." << endl;
         }
-        
+     
         for(int i=0; i < int_data.size(); i++)
         {
             cout << int_data[i] << ' ';
         }
-        
-        // New code end.
     }
            
     ppm_file.close();
