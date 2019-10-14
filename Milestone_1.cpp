@@ -41,6 +41,8 @@ void string_to_int(string const &the_string, vector<int> &int_vector)
             cout << "something went wrong" << endl;
         }
     }
+    // I think something is going wrong in converting the string to numbers, in the beginning. 
+    // Maybe try using stoi instead and see if that makes a difference?
 }
 
 
