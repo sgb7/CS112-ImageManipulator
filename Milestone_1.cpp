@@ -32,20 +32,21 @@ void string_to_int(string const &the_string, vector<int> &int_vector)
     split_string(the_string, delim, out);
     for(int i=0; i < out.size(); i++)
     {
-        int number;
-        istringstream iss (out[i]);
-        iss >> number;
+        int number = stoi(out[i]);
         int_vector.push_back(number);
-        if (iss.fail())
+        
+        /*istringstream iss (out[i]);
+        iss >> number;
+        int_vector.push_back(number);*/
+        /*if (iss.fail())
         {
             cout << "something went wrong" << endl;
-        }
+        }*/
     }
-    // I think something is going wrong in converting the string to numbers, in the beginning. 
+    // Something is going wrong in converting the string to numbers, in the beginning. 
     // Maybe try using stoi instead and see if that makes a difference?
-    // Nope. Did not make a difference. The problem could lie with split_string.
-    // I think it's the length of the file that's the issue. What I have now just can't process all of it.
-    // But how do I solve that?
+    // Nope that didn't work. I think it has something to do with the size of the file I'm processing.
+    // But how do I fix that?
 }
 
 
@@ -62,25 +63,34 @@ int main()
     cout << "Please enter source file name here: " << endl;
     string source_file_name;
     cin >> source_file_name;
-    //Good
     
     cout << "Please enter destination file name here: " << endl;
     string destination_file_name;
     cin >> destination_file_name;
-    //Good
     
     ifstream ppm_file;
     ppm_file.open(source_file_name);
     string line;
-    //Good
     
+     cout << "Possible image effects: " << endl
+         << "1. Remove red" << endl
+         << "2. Remove blue" << endl
+         << "3. Remove green" << endl
+         << "4. Negate red" << endl
+         << "5. Negate blue" << endl
+         << "6. Negate green" << endl
+         << "7. Grayscale" << endl << endl;
+    cout << "Please enter the number of your desired effect here: " << endl;
     cout << endl;
-    cout << "Here's what was written to the destination file: " << endl;  
+    int desired_effect;
+    cin >> desired_effect;
+    
+    //cout << endl;
+    //cout << "Here's what was written to the destination file: " << endl;  
     if(ppm_file.fail())
     {
         cout << "Can not open file.";
     }
-    // Good
     else
     {
         string line;
@@ -89,9 +99,9 @@ int main()
             getline(ppm_file, line);
             data.push_back(line);
         }
-        //Good
         
-        cout << data[0] << endl;
+        
+        /*cout << data[0] << endl;
         //Good
         
         string height = data[1].substr(0, 1);
@@ -103,7 +113,7 @@ int main()
         //Good
         
         cout << data[2] << endl;
-        //Good
+        //Good*/
 
         
         // New code:
@@ -117,11 +127,11 @@ int main()
             }
         }
      
-        for(int i=0; i < int_data.size(); i++)
+        /*for(int i=0; i < int_data.size(); i++)
         {
             cout << int_data[i] << ' ';
         }
-        cout << endl;
+        cout << endl;*/
         
         for(int i=0; i < int_data.size(); i++)
         {
