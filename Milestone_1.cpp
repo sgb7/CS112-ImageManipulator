@@ -44,6 +44,8 @@ void string_to_int(string const &the_string, vector<int> &int_vector)
     // I think something is going wrong in converting the string to numbers, in the beginning. 
     // Maybe try using stoi instead and see if that makes a difference?
     // Nope. Did not make a difference. The problem could lie with split_string.
+    // I think it's the length of the file that's the issue. What I have now just can't process all of it.
+    // But how do I solve that?
 }
 
 
