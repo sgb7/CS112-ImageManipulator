@@ -32,16 +32,14 @@ void string_to_int(string const &the_string, vector<int> &int_vector)
     split_string(the_string, delim, out);
     for(int i=0; i < out.size(); i++)
     {
-        int number = stoi(out[i]);
-        int_vector.push_back(number);
-        
-        /*istringstream iss (out[i]);
+        int number;
+        istringstream iss (out[i]);
         iss >> number;
-        int_vector.push_back(number);*/
-        /*if (iss.fail())
+        int_vector.push_back(number);
+        if (iss.fail())
         {
             cout << "something went wrong" << endl;
-        }*/
+        }
     }
     // Something is going wrong in converting the string to numbers, in the beginning. 
     // Maybe try using stoi instead and see if that makes a difference?
@@ -69,14 +67,13 @@ int main()
     
      cout << "Possible image effects: " << endl
          << "1. Remove red" << endl
-         << "2. Remove blue" << endl
-         << "3. Remove green" << endl
+         << "2. Remove green" << endl
+         << "3. Remove blue" << endl
          << "4. Negate red" << endl
-         << "5. Negate blue" << endl
-         << "6. Negate green" << endl
+         << "5. Negate green" << endl
+         << "6. Negate blue" << endl
          << "7. Grayscale" << endl << endl;
     cout << "Please enter the number of your desired effect here: " << endl;
-    cout << endl;
     int desired_effect;
     cin >> desired_effect;
     
@@ -119,12 +116,13 @@ int main()
                 int_data.push_back(temp_vector[i]);
             }
         }
-     
-        /*for(int i=0; i < int_data.size(); i++)
+        
+        cout << endl;
+        for(int i=0; i < int_data.size(); i++)
         {
             cout << int_data[i] << ' ';
         }
-        cout << endl;*/
+        cout << endl << endl;
         
         switch(desired_effect)
         {
@@ -133,22 +131,61 @@ int main()
                 {
                     if(i%3==0)
                     {
-                        int_data[i]=0;
+                        int_data[i] = 0;
                     }
                 }
                break;
             case 2:
+                for(int i=0; i < int_data.size(); i++)
+                {
+                    if((i+2)%3==0)
+                    {
+                        int_data[i]=0;
+                    }
+                }
                 break;
             case 3:
+                for(int i=0; i < int_data.size(); i++)
+                {
+                    if((i+1)%3==0)
+                    {
+                        int_data[i] = 0;
+                    }
+                }
                 break;
             case 4:
+                for(int i=0; i < int_data.size(); i++)
+                {
+                    if(i%3==0)
+                    {
+                        int_data[i] = 255 - int_data[i];
+                    }
+                }
                 break;
             case 5:
+                for(int i=0; i < int_data.size(); i++)
+                {
+                    if((i+2)%3==0)
+                    {
+                        int_data[i] = 255 - int_data[i];
+                    }
+                }
                 break;
             case 6:
+                for(int i=0; i < int_data.size(); i++)
+                {
+                    if((i+1)%3==0)
+                    {
+                        int_data[i] = 255 - int_data[i];
+                    }
+                }
                 break;
-            case 7:
-                break;
+            /*case 7:
+                for(int=0; i < int_data.size(); i++)
+                {
+                    //take avg of all three and replace every digit with that. How?
+                }
+                break;*/
             default:
                 cout << "This is an invalid input." << endl;
         }
