@@ -21,7 +21,6 @@ void split_string(string const &str, const char delim, vector<string> &out)
 		end = str.find(delim, start);
 		out.push_back(str.substr(start, end - start));
 	}
-        // string append, instead of a vector?
 }
 
 void string_to_int(string const &the_string, vector<int> &int_vector)
@@ -41,17 +40,16 @@ void string_to_int(string const &the_string, vector<int> &int_vector)
             cout << "something went wrong" << endl;
         }
     }
-    // Something is going wrong in converting the string to numbers, in the beginning. 
-    // Maybe try using stoi instead and see if that makes a difference?
-    // Nope that didn't work. I think it has something to do with the size of the file I'm processing.
-    // But how do I fix that?
+    // Okay, so something went wrong with this function -- at least I'm assuming that's where
+    // the issue was -- on my laptop, but it worked fine on one of the school's computers, so I 
+    // think everything should be okay? Just a note just in case.
 }
 
 
 int main()
 {
     vector<string> data;
-    vector<int> int_data; //that should work
+    vector<int> int_data; 
     
     cout << "Please enter source file name here: " << endl;
     string source_file_name;
@@ -77,8 +75,6 @@ int main()
     int desired_effect;
     cin >> desired_effect;
     
-    //cout << endl;
-    //cout << "Here's what was written to the destination file: " << endl;  
     if(ppm_file.fail())
     {
         cout << "Can not open file.";
@@ -92,21 +88,6 @@ int main()
             data.push_back(line);
         }
         
-        
-        /*cout << data[0] << endl;
-        //Good
-        
-        string height = data[1].substr(0, 1);
-        cout << height << endl;
-        //Good
-        
-        string width = data[1].substr(2);
-        cout << width << endl;
-        //Good
-        
-        cout << data[2] << endl;
-        //Good*/
-
         for(int i=3; i < data.size(); i++)
         {
             vector<int> temp_vector;
@@ -116,13 +97,6 @@ int main()
                 int_data.push_back(temp_vector[i]);
             }
         }
-        
-        cout << endl;
-        for(int i=0; i < int_data.size(); i++)
-        {
-            cout << int_data[i] << ' ';
-        }
-        cout << endl << endl;
         
         switch(desired_effect)
         {
@@ -180,19 +154,20 @@ int main()
                     }
                 }
                 break;
-            /*case 7:
-                for(int=0; i < int_data.size(); i++)
+            case 7:
+                for(int i=0; i < int_data.size(); i++)
                 {
-                    //take avg of all three and replace every digit with that. How?
+                    if((i+1)%3==0)
+                    {
+                        int avg_value = (int_data[i] + int_data[i-1] + int_data[i-2])/3;
+                        int_data[i] = avg_value;
+                        int_data[i-1] = avg_value;
+                        int_data[i-2] = avg_value;
+                    }
                 }
-                break;*/
+                break;
             default:
                 cout << "This is an invalid input." << endl;
-        }
-     
-        for(int i=0; i < int_data.size(); i++)
-        {
-            cout << int_data[i] << ' ';
         }
     }
            
