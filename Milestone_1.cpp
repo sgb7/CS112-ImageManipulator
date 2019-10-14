@@ -132,38 +132,6 @@ int main()
         }
         
         // New code end.
-            
-        /*string_to_int(data[3], data_line_1);
-        data_line_1[3] = 0;
-        data_line_1[9] = 0;
-        for(int i=0; i < data_line_1.size(); i++)
-        {
-            cout << data_line_1[i] << ' ';
-        }
-        cout << endl;
-        
-        string_to_int(data[4], data_line_2);
-        for(int i=0; i < data_line_2.size(); i++)
-        {
-            cout << data_line_2[i] << ' ';
-        }
-        cout << endl;
-        
-        string_to_int(data[5], data_line_3);
-        for(int i=0; i < data_line_3.size(); i++)
-        {
-            cout << data_line_3[i] << ' ';
-        }
-        cout << endl;
-        
-        string_to_int(data[6], data_line_4);
-        data_line_4[0] = 0;
-        data_line_4[9] = 0;
-        for(int i=0; i < data_line_4.size(); i++)
-        {
-            cout << data_line_4[i] << ' ';
-        }
-        cout << endl;*/
     }
            
     ppm_file.close();
@@ -174,26 +142,11 @@ int main()
     output_file << data[0] << endl;
     output_file << data[1] << endl;
     output_file << data[2] << endl;
-    for(int i=0; i < data_line_1.size(); i++)
+    
+    for(int i=0; i < int_data.size(); i++)
     {
-        output_file << data_line_1[i] << ' ';
+        output_file << int_data[i] << ' ';
     }
-    cout << endl;
-    for(int i=0; i < data_line_2.size(); i++)
-    {
-        output_file << data_line_2[i] << ' ';
-    }
-    cout << endl;
-    for(int i=0; i < data_line_3.size(); i++)
-    {
-        output_file << data_line_3[i] << ' ';
-    }
-    cout << endl;
-    for(int i=0; i < data_line_4.size(); i++)
-    {
-        output_file << data_line_4[i] << ' ';
-    }
-    cout << endl;
 
     output_file.close();
     
