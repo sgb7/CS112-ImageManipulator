@@ -8,6 +8,7 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
+#include <random>
 
 using namespace std;
 
@@ -73,11 +74,9 @@ int main()
          << "8. Add noise" << endl
          << "9. High contrast" << endl
          << "Q. Quit" << endl << endl;
-    
-    // Need to loop so people can use multiple desired effects
-    // "Enter another effect number or Q to quit: "
-    // Do I need to move this so it's grouped with the switch statement?
-    // while(desired_effect != 'Q')
+    cout << "Please enter desired effect number here: " << endl;
+    int desired_effect;
+    cin >> desired_effect;
     
     if(ppm_file.fail())
     {
@@ -102,16 +101,8 @@ int main()
             }
         }
         
-        for(int i=0; i < data.size(); i++)
+        while(desired_effect != 0)
         {
-            cout << int_data[i] << endl;
-        }
-        
-        int desired_effect = 0;
-        while(desired_effect != 'Q')
-        {
-            cout << "Please enter desired effect number here or Q to quit: " << endl;
-            cin >> desired_effect;
             switch(desired_effect)
             {
                 case 1:
@@ -122,7 +113,7 @@ int main()
                             int_data[i] = 0;
                         }
                     }
-                break;
+                    break;
                 case 2:
                     for(int i=0; i < int_data.size(); i++)
                     {
@@ -180,15 +171,28 @@ int main()
                         }
                     }
                     break;
-                /*case 8:
-                    // need to pick a random number between 10 and -10
+                case 8:
                     for(int i=0; i < int_data.size(); i++)
                     {
-                        // add that number to a pixel
-                        // if final value > 255, value = 255
-                        // if final value < 0, value = 0
+                        random_device dev;
+                        mt19937 rng(dev());
+                        uniform_int_distribution<mt19937::result_type> dist(-10, 10);
+                        int random_number = dist(rng);
+                        int changed_value = int_data[i] + random_number;
+                        if(changed_value > 255)
+                        {
+                            int_data[i] = 255;
+                        }
+                        else if(changed_value < 0)
+                        {
+                            int_data[i] = 0;
+                        }
+                        else
+                        {
+                            int_data[i] = changed_value;
+                        }
                     }
-                    break;*/
+                    break;
                 case 9:
                     for(int i=0; i < int_data.size(); i++)
                     {
@@ -205,6 +209,8 @@ int main()
                 default:
                     cout << "This is an invalid input." << endl;
             }
+        cout << "Apply another effect or enter 0 to quit: " << endl;
+        cin >> desired_effect;
         }
     }
            
