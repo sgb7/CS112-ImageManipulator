@@ -1,0 +1,17 @@
+Milestone 2 Reflection
+
+      This project was fairly easy I think. I had to review a couple things, but once I’d done that I was able to accomplish what 
+  I needed without too much trouble. The biggest hitch was probably figuring out how to randomly select numbers. I checked out 
+  a few different options online, and then tried implementing them. It took a few tries to get it working the way I wanted but 
+  I eventually managed to make it run. There was also another issue, where it suddenly wasn’t reading the file, and I was 
+  getting frustrated because I couldn’t figure out why. Then I realized: the image I was trying to access wasn’t in my project 
+  folder. Lo and behold once I took care of that, it worked fine, so if I had to pick something I learned from this, it’s to 
+  remember to check all the little things before scrutinizing your code. The fact that that small thing was the issue all along
+  is even a little funny, looking back on it.
+	    The thing I enjoyed most about this project was adding more effects, same as the last one. It’s just really cool to see all 
+  the different things you can do to the photo just by messing around with the numbers. And making it so I can now add 
+  multiple effects was a fun addition. It made the whole thing feel even more realistic, like the photo apps people download 
+  and use on their phones. I’m looking forward to the next project, even though I can tell it’s going to be a little more 
+  challenging than these last two. I’m definitely going to try and start earlier on it than I did with this project and the 
+  last, since I want plenty of time to work through any issues I come across. 
+	    So yeah, fun project. As always, it’s very satisfying to see something I worked on run successfully. 
