@@ -265,37 +265,43 @@ int main()
                     }
                     break;
                 case 8:
-                    for(int i=0; i < int_data.size(); i++)
+                    for(int i=0; i < vector_squared.size(); i++)
                     {
-                        random_device dev;
-                        mt19937 rng(dev());
-                        uniform_int_distribution<mt19937::result_type> dist(-10, 10);
-                        int random_number = dist(rng);
-                        int changed_value = int_data[i] + random_number;
-                        if(changed_value > 255)
+                        for(int j=0; j < vector_squared[i].size(); j++)
                         {
-                            int_data[i] = 255;
-                        }
-                        else if(changed_value < 0)
-                        {
-                            int_data[i] = 0;
-                        }
-                        else
-                        {
-                            int_data[i] = changed_value;
+                            random_device dev;
+                            mt19937 rng(dev());
+                            uniform_int_distribution<mt19937::result_type> dist(-10, 10);
+                            int random_number = dist(rng);
+                            int changed_value = vector_squared[i][j] + random_number;
+                            if(changed_value > 255)
+                            {
+                                vector_squared[i][j] = 255;
+                            }
+                            else if(changed_value < 0)
+                            {
+                                vector_squared[i][j] = 0;
+                            }
+                            else
+                            {
+                                vector_squared[i][j] = changed_value;
+                            }
                         }
                     }
                     break;
                 case 9:
-                    for(int i=0; i < int_data.size(); i++)
+                    for(int i=0; i < vector_squared.size(); i++)
                     {
-                        if(int_data[i] > (255/2))
+                        for(int j=0; j < vector_squared[i].size(); j++)
                         {
-                            int_data[i] = 255;
-                        }
-                        else
-                        {
-                            int_data[i] = 0;
+                            if(vector_squared[i][j] > (255/2))
+                            {
+                                vector_squared[i][j] = 255;
+                            }
+                            else
+                            {
+                                vector_squared[i][j] = 0;
+                            }
                         }
                     }
                     break;
