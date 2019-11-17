@@ -1,39 +1,4 @@
-// CS 112, Summer Banister, Milestone_3
-
-// IMPORTANT: GET A HEADSTART ON THIS!
-// Due: November 18, Monday
-
-// Consider switching to pixels? Pixel
-
-// Convert data to two-dimensional structure -- a vector of vectors, the vectors
-// inside the vector representing lines, and then you can just reverse them or 
-// whatever needs to be done to the numbers.
-// Will need to change my for loops when I do this.
-
-/* vector<vector<int>> data;
- * int width = 15;
- * for(int i=0; i < data.size(); i++)
- * {
- *      cur_y = 0;
- *      cur_x = 0;
- *      while(cur_x < width)
- *      {
- *          data[cur_y][cur_x] = data[i];
- *          cur_x = cur_x + 1;
- *      }
- *      cur_y = cur_y + 1;
- *      cur_x = 0;
- * }
- * 
- */
-
-// Look up how to reverse a string.
-
-// Use loops to move numbers around.
-
-// Look into refactoring string to int conversion? Just review the code overall
-// to see if improvements can be made to make this project easier/more efficient.
-
+// Summer Banister, CS 112, Milestone 2
 
 #include <iostream>
 #include <string>
@@ -44,7 +9,6 @@
 #include <algorithm>
 #include <sstream>
 #include <random>
-#include <cmath>
 
 using namespace std;
 
@@ -85,8 +49,7 @@ void string_to_int(string const &the_string, vector<int> &int_vector)
 int main()
 {
     vector<string> data;
-    vector<int> int_data;
-    vector<vector<int>> vector_squared;
+    vector<int> int_data; 
     
     cout << "Please enter source file name here: " << endl;
     string source_file_name;
@@ -109,12 +72,8 @@ int main()
          << "6. Negate blue" << endl
          << "7. Grayscale" << endl
          << "8. Add noise" << endl
-         << "9. High contrast" << endl 
-         << "10. Flip horizontally" << endl 
-         << "11. Flip vertically" << endl 
-         << "12. Blur" << endl 
-         << "13. Pixelate" << endl 
-         << "14. Rotate 90 degrees" << endl << endl;
+         << "9. High contrast" << endl
+         << "Q. Quit" << endl << endl;
     cout << "Please enter desired effect number here: " << endl;
     int desired_effect;
     cin >> desired_effect;
@@ -138,90 +97,47 @@ int main()
             string_to_int(data[i], temp_vector);
             for(int i=0; i < temp_vector.size(); i++)
             {
-                // Change code here to use a two-dimensional vector?
-                // Each line is 15 numbers
-                // So a for loop with an int i=0, i < 14, i++ ? Test it.
                 int_data.push_back(temp_vector[i]);
             }
         }
-        
-        //Insert 2D vector here? I think?
-        int width = 15;
-        vector<int> temp_vector;
-        
-        for(int i = 0; i < int_data.size(); i++)
-        {
-            if((i+1) % width == 0)
-            {
-                temp_vector.push_back(int_data[i]);
-                vector_squared.push_back(temp_vector);
-                temp_vector = vector<int>{};
-            }
-            else
-            {
-                temp_vector.push_back(int_data[i]);
-            }
-            
-        }
-        
-        /*for(int i = 0; i < vector_squared.size(); i++)
-        {
-            for(int j = 0; j < vector_squared[i].size(); j++)
-            {
-                cout << "location "<< i << "-" << j << ": " << vector_squared[i][j] << endl;
-            }
-        }*/
-        
         
         while(desired_effect != 0)
         {
             switch(desired_effect)
             {
                 case 1:
-                    for(int i=0; i < vector_squared.size(); i++)
+                    for(int i=0; i < int_data.size(); i++)
                     {
-                        for(int j=0; j < vector_squared[i].size(); j++)
+                        if(i%3==0)
                         {
-                            if(j%3==0)
-                            {
-                                vector_squared[i][j] = 0;
-                            }
+                            int_data[i] = 0;
                         }
                     }
                     break;
                 case 2:
-                    for(int i=0; i < vector_squared.size(); i++)
+                    for(int i=0; i < int_data.size(); i++)
                     {
-                        for(int j=0; j < vector_squared[i].size(); j++)
+                        if((i+2)%3==0)
                         {
-                            if((j+2)%3==0)
-                            {
-                                vector_squared[i][j] = 0;
-                            }
+                            int_data[i]=0;
                         }
                     }
                     break;
                 case 3:
-                    for(int i=0; i < vector_squared.size(); i++)
+                    for(int i=0; i < int_data.size(); i++)
                     {
-                        for(int j=0; j < vector_squared[i].size(); j++)
+                        if((i+1)%3==0)
                         {
-                            if((j+1)%3==0)
-                            {
-                                vector_squared[i][j] = 0;
-                            }
+                            int_data[i] = 0;
                         }
                     }
                     break;
                 case 4:
-                    for(int i=0; i < vector_squared.size(); i++)
+                    for(int i=0; i < int_data.size(); i++)
                     {
-                        for(int j=0; j < vector_squared[i].size(); j++)
+                        if(i%3==0)
                         {
-                            if(j%3==0)
-                            {
-                                vector_squared[i][j] = 255 - vector_squared[i][j];
-                            }
+                            int_data[i] = 255 - int_data[i];
                         }
                     }
                     break;
@@ -290,18 +206,6 @@ int main()
                         }
                     }
                     break;
-                case 10:
-                    // TO DO
-                    break;
-                case 11:
-                    // TO DO
-                    break;
-                case 12:
-                    // TO DO
-                    break;
-                case 14:
-                    // TO DO
-                    break;
                 default:
                     cout << "This is an invalid input." << endl;
             }
@@ -319,15 +223,13 @@ int main()
     output_file << data[1] << endl;
     output_file << data[2] << endl;
     
-    for(int i=0; i < vector_squared.size(); i++)
+    for(int i=0; i < int_data.size(); i++)
     {
-        for(int j=0; j < vector_squared[i].size(); j++)
-        {
-            output_file << vector_squared[i][j] << ' ';
-        }
+        output_file << int_data[i] << ' ';
     }
 
     output_file.close();
     
     return 0;
 }
+
