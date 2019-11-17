@@ -1,4 +1,4 @@
-// CS 112, Summer Banister, Milestone_3
+/ CS 112, Summer Banister, Milestone_3
 
 // IMPORTANT: GET A HEADSTART ON THIS!
 // Due: November 18, Monday
@@ -306,13 +306,16 @@ int main()
                     }
                     break;
                 case 10:
-                    // TO DO
+                    for(int i=0; i < vector_squared.size(); i++)
+                    {
+                        reverse(vector_squared[i].begin(), vector_squared[i].end());
+                    }
                     break;
                 case 11:
-                    // TO DO
+                    reverse(vector_squared.begin(), vector_squared.end());
                     break;
                 case 12:
-                    // TO DO
+                    
                     break;
                 case 14:
                     // TO DO
