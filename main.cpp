@@ -226,32 +226,41 @@ int main()
                     }
                     break;
                 case 5:
-                    for(int i=0; i < int_data.size(); i++)
+                    for(int i=0; i < vector_squared.size(); i++)
                     {
-                        if((i+2)%3==0)
+                        for(int j=0; j < vector_squared[i].size(); j++)
                         {
-                            int_data[i] = 255 - int_data[i];
+                            if((j+2)%3==0)
+                            {
+                                vector_squared[i][j] = 255 - vector_squared[i][j];
+                            }
                         }
                     }
                     break;
                 case 6:
-                    for(int i=0; i < int_data.size(); i++)
+                    for(int i=0; i < vector_squared.size(); i++)
                     {
-                        if((i+1)%3==0)
+                        for(int j=0; j < vector_squared[i].size(); j++)
                         {
-                            int_data[i] = 255 - int_data[i];
+                            if((j+1)%3==0)
+                            {
+                                vector_squared[i][j] = 255 - vector_squared[i][j];
+                            }
                         }
                     }
                     break;
                 case 7:
-                    for(int i=0; i < int_data.size(); i++)
+                    for(int i=0; i < vector_squared.size(); i++)
                     {
-                        if((i+1)%3==0)
+                        for(int j=0; j < vector_squared[i].size(); j++)
                         {
-                            int avg_value = (int_data[i] + int_data[i-1] + int_data[i-2])/3;
-                            int_data[i] = avg_value;
-                            int_data[i-1] = avg_value;
-                            int_data[i-2] = avg_value;
+                            if((j+1)%3==0)
+                            {
+                                int avg_value = (vector_squared[i][j] + vector_squared[i][j-1] + vector_squared[i][j-2])/3;
+                                vector_squared[i][j] = avg_value;
+                                vector_squared[i][j-1] = avg_value;
+                                vector_squared[i][j-2] = avg_value;
+                            }
                         }
                     }
                     break;
