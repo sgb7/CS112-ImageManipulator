@@ -315,7 +315,46 @@ int main()
                     reverse(vector_squared.begin(), vector_squared.end());
                     break;
                 case 12:
+                    // Set red, blue and green values to the average of the red, green and blue
+                    // values immediately close to them, both horizontally and vertically.
+                    // Could have a row avg and a column avg
+                    // But how would I apply that? That is, which avg comes first? Row or column?
+                    // Or do I apply them at the same time? Can I apply them at the same time?
+                    // First things first, we want to run through the numbers, and affect the red,
+                    // green and blue values individually. 
+                    for(int i=0; i < vector_squared.size(); i++)
+                    {
+                        for(int j=0; j < vector_squared[i](); j++)
+                        {
+                            if(j%3==0)
+                            {
+                                // Now, reds horizontally and vertically adjacent need to be averaged with
+                                // the current red. How do I account for border cases? 
+                                int row_avg = (vector_squared[i][j] + vector_squared[i][j+3] + vector_squared[i][j-3])/3;
+                                int column_avg = (vector_squared[i][j] + vector_squared[i+1][j]+vector_squared[i-1][j])/3;
+                                int total_avg = (row_avg + column_avg)/2;
+                                vector_squared[i][j] = total_avg;
+                                
+                                // red value
+                            }
+                            else if((j+2)%3==0)
+                            {
+                                int row_avg = 0;
+                                int column_avg = 0;
+                                // green value
+                            }
+                            else // Does it need to be an else if? (j+1)%3==0 if it does.
+                            {
+                                int row_avg = 0;
+                                int column_avg = 0;
+                                // blue value
+                            }
+                        }
+                    }
                     
+                    break;
+                case 13:
+                    // TO DO
                     break;
                 case 14:
                     // TO DO
