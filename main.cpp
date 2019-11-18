@@ -1,4 +1,4 @@
-/ CS 112, Summer Banister, Milestone_3
+// CS 112, Summer Banister, Milestone_3
 
 // IMPORTANT: GET A HEADSTART ON THIS!
 // Due: November 18, Monday
