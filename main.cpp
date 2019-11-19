@@ -1,40 +1,3 @@
-// CS 112, Summer Banister, Milestone_3
-
-// IMPORTANT: GET A HEADSTART ON THIS!
-// Due: November 18, Monday
-
-// Consider switching to pixels? Pixel
-
-// Convert data to two-dimensional structure -- a vector of vectors, the vectors
-// inside the vector representing lines, and then you can just reverse them or 
-// whatever needs to be done to the numbers.
-// Will need to change my for loops when I do this.
-
-/* vector<vector<int>> data;
- * int width = 15;
- * for(int i=0; i < data.size(); i++)
- * {
- *      cur_y = 0;
- *      cur_x = 0;
- *      while(cur_x < width)
- *      {
- *          data[cur_y][cur_x] = data[i];
- *          cur_x = cur_x + 1;
- *      }
- *      cur_y = cur_y + 1;
- *      cur_x = 0;
- * }
- * 
- */
-
-// Look up how to reverse a string.
-
-// Use loops to move numbers around.
-
-// Look into refactoring string to int conversion? Just review the code overall
-// to see if improvements can be made to make this project easier/more efficient.
-
-
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -324,37 +287,25 @@ int main()
                     // green and blue values individually. 
                     for(int i=0; i < vector_squared.size(); i++)
                     {
-                        for(int j=0; j < vector_squared[i](); j++)
+                        for(int j=0; j < vector_squared[i].size(); j++)
                         {
-                            if(j%3==0)
-                            {
-                                // Now, reds horizontally and vertically adjacent need to be averaged with
-                                // the current red. How do I account for border cases? 
-                                int row_avg = (vector_squared[i][j] + vector_squared[i][j+3] + vector_squared[i][j-3])/3;
-                                int column_avg = (vector_squared[i][j] + vector_squared[i+1][j]+vector_squared[i-1][j])/3;
-                                int total_avg = (row_avg + column_avg)/2;
-                                vector_squared[i][j] = total_avg;
-                                
-                                // red value
-                            }
-                            else if((j+2)%3==0)
-                            {
-                                int row_avg = 0;
-                                int column_avg = 0;
-                                // green value
-                            }
-                            else // Does it need to be an else if? (j+1)%3==0 if it does.
-                            {
-                                int row_avg = 0;
-                                int column_avg = 0;
-                                // blue value
-                            }
+                            int avg = (vector_squared[i][j] + vector_squared[i+1][j] + vector_squared[i-1][j] + vector_squared[i][j+3] + vector_squared[i][j-3])/5;
+                            vector_squared[i][j] = avg;
                         }
                     }
                     
                     break;
                 case 13:
-                    // TO DO
+                    for(int i=0; i < vector_squared.size(); i+2)
+                    {
+                        for(int j=0; j < vector_squared[i].size(); j+2)
+                        {
+                            int ref = vector_squared[i][j];
+                            vector_squared[i][j+1] = ref;
+                            vector_squared[i+1][j] = ref;
+                            vector_squared[i+1][j+1] = ref;
+                        }
+                    }
                     break;
                 case 14:
                     // TO DO
