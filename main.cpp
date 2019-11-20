@@ -84,7 +84,7 @@ int main()
 
 	if (ppm_file.fail())
 	{
-		cout << "Can not open file.";
+		cout << "Can not open file";
 	}
 	else
 	{
