@@ -1,0 +1,15 @@
+  Milestone 3 Reflection
+
+	  So, this project was definitely a challenge, and, try as I might have, I was not able to get everything up and running in 
+  time. I did manage to get the horizontal and vertical flips working just fine, so I’d say those were the easiest out of 
+  everything. The hardest would have to be the 90 degree rotation, because I wasn’t entirely sure where to start with that. 
+	  I thought I had pixelate and blur handled—-pixelate more than blur—-but then blur kept throwing me errors, and pixelate would sort 
+  of stall? It might have something to do with memory, maybe, since that makes sense in terms of slowing the whole thing down, 
+  but I’m not a hundred percent sure either way. I’ll have to crack down on it later and see what’s going on, maybe revise 
+  some of my older code while I’m at it to make everything as a whole run more smoothly. 
+	  The most fun thing about this whole project was probably implementing a 2D vector. Not because it was easy or anything—-I 
+  actually had some trouble with that too, in the beginning, but I worked it out in the end-—but because it’s sort of cool. I 
+  feel like there’s a lot of possible applications for it, and thinking about everything in the context of a 2D structure was 
+  interesting. 
+	  So yeah. I’m a little disappointed that I didn’t finish it in time, but it is what it is. The whole thing was still a good 
+  learning experience, and it’ll be cool when I finally do get everything running properly.
