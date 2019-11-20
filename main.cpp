@@ -84,7 +84,7 @@ int main()
 
 	if (ppm_file.fail())
 	{
-		cout << "Can not open file";
+		cout << "Can not open file.";
 	}
 	else
 	{
@@ -289,8 +289,7 @@ int main()
 				{
 					for (int j = 0; j < vector_squared[i].size(); j++)
 					{
-						int avg = (vector_squared[i][j] + vector_squared[i + 1][j] + vector_squared[i - 1][j] + vector_squared[i][j + 3] + vector_squared[i][j - 3]) / 5;
-						vector_squared[i][j] = avg;
+						// TO DO
 					}
 				}
 
@@ -298,13 +297,37 @@ int main()
 			case 13:
 				for (int i = 0; i < vector_squared.size(); i + 2)
 				{
-					for (int j = 0; j < vector_squared[i].size(); j + 2)
+					for (int j = 0; j < vector_squared[i].size(); j++)
 					{
-						int ref = vector_squared[i][j];
-						vector_squared[i][j + 1] = ref;
-						vector_squared[i + 1][j] = ref;
-						vector_squared[i + 1][j + 1] = ref;
+						int red_ref;
+						int green_ref;
+						int blue_ref;
+						if (j % 3 == 0)
+						{
+							if (j % 6 == 0)
+							{
+								red_ref = vector_squared[i][j];
+							}
+							vector_squared[i][j] = red_ref;
+						}
+						else if ((j + 2) % 3 == 0)
+						{
+							if (j % 7 == 0)
+							{
+								green_ref = vector_squared[i][j];
+							}
+							vector_squared[]
+						}
+
+						int red = vector_squared[i][j];
+						int green = vector_squared[i][j + 1];
+						int blue = vector_squared[i][j + 2];
+
+						vector_squared[i][j + 3] = red;
+						vector_squared[i][j + 4] = green;
+						vector_squared[i][j + 5] = blue;
 					}
+					vector_squared[i + 1] = vector_squared[i];
 				}
 				break;
 			case 14:
