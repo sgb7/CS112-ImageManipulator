@@ -23,7 +23,7 @@ void split_string(string const& str, const char delim, vector<string>& out)
 	}
 }
 
-void string_to_int(string const& the_string, vector<int> & int_vector)
+void string_to_int(string const& the_string, vector<int>& int_vector)
 {
 	int number;
 	char delim = ' ';
@@ -102,8 +102,6 @@ int main()
 			for (int i = 0; i < temp_vector.size(); i++)
 			{
 				// Change code here to use a two-dimensional vector?
-				// Each line is 15 numbers
-				// So a for loop with an int i=0, i < 14, i++ ? Test it.
 				int_data.push_back(temp_vector[i]);
 			}
 		}
@@ -126,15 +124,6 @@ int main()
 			}
 
 		}
-
-		/*for(int i = 0; i < vector_squared.size(); i++)
-		{
-			for(int j = 0; j < vector_squared[i].size(); j++)
-			{
-				cout << "location "<< i << "-" << j << ": " << vector_squared[i][j] << endl;
-			}
-		}*/
-
 
 		while (desired_effect != 0)
 		{
@@ -289,22 +278,64 @@ int main()
 				{
 					for (int j = 0; j < vector_squared[i].size(); j++)
 					{
-						// TO DO
+						// a vector of the different values added up and divided by it's size?
+						vector<int> values;
+						int counter = 5;
+						if ((i + 1) > vector_squared.size())
+						{
+							counter = counter - 1;
+						}
+						else
+						{
+							values.push_back(vector_squared[i + 1][j]);
+						}
+						if ((i - 1) < vector_squared.size())
+						{
+							counter = counter - 1;
+						}
+						else
+						{
+							values.push_back(vector_squared[i - 1][j]);
+						}
+						if ((j + 3) > vector_squared[i].size())
+						{
+							counter = counter - 1;
+						}
+						else
+						{
+							values.push_back(vector_squared[i][j + 3]);
+						}
+						if ((j - 3) < vector_squared[i].size())
+						{
+							counter = counter - 1;
+						}
+						else
+						{
+							values.push_back(vector_squared[i][j - 3]);
+						}
+						int added_values = vector_squared[i][j];
+						for (int a = 0; a < values.size(); a++)
+						{
+							added_values = added_values + values[a];
+						}
+						vector_squared[i][j] = added_values / counter;
 					}
 				}
 
 				break;
 			case 13:
+				int red_ref;
+				int green_ref;
+				int blue_ref;
+				int counter;
+				counter = 1;
 				for (int i = 0; i < vector_squared.size(); i + 2)
 				{
 					for (int j = 0; j < vector_squared[i].size(); j++)
 					{
-						int red_ref;
-						int green_ref;
-						int blue_ref;
 						if (j % 3 == 0)
 						{
-							if (j % 6 == 0)
+							if (counter % 7 == 0)
 							{
 								red_ref = vector_squared[i][j];
 							}
@@ -312,20 +343,21 @@ int main()
 						}
 						else if ((j + 2) % 3 == 0)
 						{
-							if (j % 7 == 0)
+							if ((counter - 1) % 7 == 0)
 							{
 								green_ref = vector_squared[i][j];
 							}
-							vector_squared[]
+							vector_squared[i][j] = green_ref;
 						}
-
-						int red = vector_squared[i][j];
-						int green = vector_squared[i][j + 1];
-						int blue = vector_squared[i][j + 2];
-
-						vector_squared[i][j + 3] = red;
-						vector_squared[i][j + 4] = green;
-						vector_squared[i][j + 5] = blue;
+						else
+						{
+							if ((counter - 2) % 7 == 0)
+							{
+								blue_ref = vector_squared[i][j];
+							}
+							vector_squared[i][j] = blue_ref;
+						}
+						counter = counter + 1;
 					}
 					vector_squared[i + 1] = vector_squared[i];
 				}
@@ -361,4 +393,3 @@ int main()
 	output_file.close();
 
 	return 0;
-}
